@@ -29,8 +29,8 @@ To deliver this increment, the team followed a structured Agile approach:
 ### Steps to Run
 1. **Clone the repository:**
    ```bash
-   git clone [YOUR-REPOSITORY-URL]
-   cd [YOUR-FOLDER-NAME]
+   git clone [REPO URL]
+   cd [FOLDER NAME]
    ```
 2. **Instalar dependencias:**
     ```bash
