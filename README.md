@@ -32,11 +32,25 @@ To deliver this increment, the team followed a structured Agile approach:
    git clone [REPO URL]
    cd [FOLDER NAME]
    ```
-2. **Instalar dependencias:**
+2. **Set up a Virtual Environment (Recommended):**
+
+Using a virtual environment is a best practice to ensure dependency isolation.
+
+* For Windows:
+    ```bash
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+* For Linux (Ubuntu/Debian):
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+3. **Instalar dependencias:**
     ```bash
     pip install -r requirements.txt
     ```
-3. **Run the application with Streamlit:**
+4. **Run the application with Streamlit:**
     ```bash
     streamlit run app.py
     ```
