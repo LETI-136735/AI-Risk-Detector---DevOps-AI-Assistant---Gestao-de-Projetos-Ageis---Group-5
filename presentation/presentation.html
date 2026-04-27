@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Risk Detector Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .content-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 3rem;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .bullet-point {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bullet-point::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .nav-btn {
+            background: #334155;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #1e293b;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #38bdf8;
+            transition: width 0.3s ease;
+        }
+
+        .speaker-notes {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            max-width: 400px;
+            z-index: 50;
+        }
+
+        .notes-content {
+            display: none;
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: #cbd5e1;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress-bar">
+        <div id="progressFill" class="progress-fill" style="width: 12.5%;"></div>
+    </div>
+
+    <div id="slide-viewer">
+        <!-- Slides will be injected here -->
+    </div>
+
+    <!-- Navigation -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 flex gap-4 z-40">
+        <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back
+        </button>
+        <div class="flex items-center text-sm font-medium text-slate-400 px-4 bg-slate-800/50 rounded-lg">
+            <span id="currentSlideNum">1</span> / 8
+        </div>
+        <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">
+            Next
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-9-6"/></svg>
+        </button>
+    </div>
+
+    <!-- Speaker Notes Toggle -->
+    <div class="speaker-notes">
+        <div id="notesBox" class="notes-content">
+            <!-- Script will be injected here -->
+        </div>
+        <button onclick="toggleNotes()" class="w-full bg-slate-800 hover:bg-slate-700 text-xs text-slate-400 py-2 px-4 rounded-lg border border-slate-700 transition-colors">
+            Toggle Speaker Notes (English Script)
+        </button>
+    </div>
+
+    <script>
+        const slides = [
+            {
+                tag: "Welcome",
+                title: "AI Risk Detector: Smart Planning for Software Teams",
+                subtitle: "Agile Project Management & DevOps Integration (Sprint 1)",
+                content: [
+                    "Presented by: Hugo Iglesias - Hisham Khartoum - Álvaro Arenas",
+                    "Institution: ISCTE-IUL",
+                    "Focus: Bringing AI into the daily Scrum workflow."
+                ],
+                script: "Good morning everyone. Today we are presenting the first phase of our project: the AI Risk Detector. In modern software development, teams move fast, but moving fast often leads to missing critical risks during planning. Our project aims to solve this by bringing Artificial Intelligence into the daily Scrum workflow, helping teams identify risks before they become blockers or production failures."
+            },
+            {
+                tag: "The Challenge",
+                title: "The Problem",
+                content: [
+                    "<strong>Late Identification:</strong> Risks found during execution or after deployment.",
+                    "<strong>Ambiguity:</strong> Requirements and tasks are often poorly defined.",
+                    "<strong>Human Bias:</strong> Teams rely on intuition rather than data.",
+                    "<strong>Impact:</strong> Results in rework, delays, and decreased velocity."
+                ],
+                script: "Why did we build this? Because we noticed a common pattern in software teams: they face poorly structured backlogs and ambiguous requirements. Usually, a developer picks a task, starts working, and only realizes there's a major dependency or a security risk when it's too late. This 'reactive' approach kills the velocity of the Sprint and compromises the quality of the release."
+            },
+            {
+                tag: "The Solution",
+                title: "Our Solution: AI Risk Detector",
+                content: [
+                    "<strong>Concept:</strong> Lightweight web tool for 'Shift-Left' risk management.",
+                    "<strong>Input:</strong> Task description in natural language.",
+                    "<strong>Output Breakdown:</strong> Potential risks, Risk Level (L/M/H), Impact, and Mitigation Recommendations."
+                ],
+                script: "Our solution is the AI Risk Detector. It's a tool designed to support the 'Shift-Left' philosophy—finding issues earlier in the cycle. By simply typing a task, like 'Deploy database migration to production', the AI provides a structured report. It doesn't just say 'it is dangerous'; it categorizes the risk level and gives actionable recommendations to the team."
+            },
+            {
+                tag: "Management",
+                title: "Agile Methodology: Scrum Implementation",
+                content: [
+                    "<strong>Product Backlog:</strong> 13 User Stories prioritized by Business Value.",
+                    "<strong>Sprint 1 Goal:</strong> Delivering the Minimum Viable Product (MVP).",
+                    "<strong>Scrum Board:</strong> Visual tracking of work items from 'To Do' to 'Done'.",
+                    "<strong>Definition of Done:</strong> Code reviewed, mock-tested, and documented."
+                ],
+                script: "To build this, we followed the Scrum framework strictly. We started with a Product Backlog of 13 User Stories. For Sprint 1, our goal was the MVP. We prioritized stories US1 through US5, which cover the core analysis engine and the interface. We managed everything through our Scrum Board, moving items from 'To Do' to 'Done' only when they met our strict Definition of Done."
+            },
+            {
+                tag: "Engineering",
+                title: "DevOps Practices",
+                content: [
+                    "<strong>Version Control:</strong> Centralized repository for team collaboration.",
+                    "<strong>Environment Management:</strong> Use of Python Virtual Environments (Venv).",
+                    "<strong>Resiliency:</strong> Integrated 'Mock Mode' for offline stability.",
+                    "<strong>Readiness:</strong> Modular architecture ready for CI/CD pipelines."
+                ],
+                script: "Parallel to Scrum, we applied DevOps principles. We established a clean repository structure, separating source code from documentation. We emphasized reproducibility using virtual environments and dependency management. A key 'DevOps' feature of our app is its resiliency: if the AI API is unavailable, the system automatically switches to a 'Mock Mode' so the team's workflow never stops."
+            },
+            {
+                tag: "Technology",
+                title: "Technical Architecture",
+                content: [
+                    "<strong>Frontend:</strong> Streamlit (Python Web Framework).",
+                    "<strong>Intelligence:</strong> OpenAI GPT-4o-mini API integration.",
+                    "<strong>Prompt Engineering:</strong> Expert System Prompts for structured data.",
+                    "<strong>Parsing:</strong> Custom logic to transform AI text into UI components."
+                ],
+                script: "Technically, the app is built on Python using Streamlit, which allowed us to create a fast, responsive interface. The heart of the system is the GPT-4o-mini model. We developed a specific 'System Prompt' that forces the AI to behave like a senior Risk Expert. We also implemented a parsing layer that takes the raw AI response and breaks it down into clear sections."
+            },
+            {
+                tag: "Progress",
+                title: "Sprint 1 Results & Demo Preview",
+                content: [
+                    "<strong>Status:</strong> 100% of Sprint 1 objectives achieved.",
+                    "<strong>Core Features:</strong> Real-time AI Analysis & Structured Views.",
+                    "<strong>Roadmap:</strong> UI enhancements, History logs, and Export features."
+                ],
+                script: "As of today, we have successfully closed Sprint 1. The core engine is working, the UI is responsive, and the AI integration is stable. We have moved from a conceptual problem to a functional tool. Now, we will briefly show you how it looks, and then we will move to the live software demonstration."
+            },
+            {
+                tag: "Wrap Up",
+                title: "Conclusion & Q&A",
+                content: [
+                    "<strong>Summary:</strong> Reducing uncertainty through AI assistance.",
+                    "<strong>Business Value:</strong> Better planning leads to faster, safer delivery.",
+                    "<strong>Next:</strong> Live Software Demonstration."
+                ],
+                script: "To conclude, AI Risk Detector isn't just a chatbot; it’s a decision-support tool. By integrating it into Sprint Planning or Daily meetings, teams can reduce uncertainty and focus on what they do best: building software. Thank you for your attention. Are there any questions before we show you the software in action?"
+            }
+        ];
+
+        let currentSlide = 0;
+
+        function renderSlide() {
+            const slide = slides[currentSlide];
+            const viewer = document.getElementById('slide-viewer');
+            
+            viewer.innerHTML = `
+                <div class="slide-container">
+                    <div class="content-card">
+                        <span class="tag">${slide.tag}</span>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">${slide.title}</h1>
+                        ${slide.subtitle ? `<h2 class="text-xl text-sky-400 mb-8 font-medium">${slide.subtitle}</h2>` : ''}
+                        
+                        <div class="space-y-4 mt-8">
+                            ${slide.content.map(item => `<p class="bullet-point text-lg text-slate-300 leading-relaxed">${item}</p>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Update UI
+            document.getElementById('currentSlideNum').innerText = currentSlide + 1;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === slides.length - 1;
+            document.getElementById('progressFill').style.width = ((currentSlide + 1) / slides.length * 100) + '%';
+            document.getElementById('notesBox').innerHTML = `<p class="font-bold mb-2 text-sky-400">Slide ${currentSlide + 1} Script:</p>${slide.script}`;
+        }
+
+        function changeSlide(direction) {
+            const next = currentSlide + direction;
+            if (next >= 0 && next < slides.length) {
+                currentSlide = next;
+                renderSlide();
+            }
+        }
+
+        function toggleNotes() {
+            const notes = document.getElementById('notesBox');
+            notes.style.display = (notes.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        // Initial render
+        window.onload = renderSlide;
+    </script>
+</body>
+</html>
