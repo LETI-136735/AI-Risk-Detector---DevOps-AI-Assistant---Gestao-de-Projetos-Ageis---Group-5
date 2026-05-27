@@ -29,7 +29,7 @@ The app receives a software task, requirement or idea and produces:
 | Suggested Tests | Improve quality and release confidence |
 | Release Readiness Notes | Help teams prepare safer deployments |
 
-The project is not intended to be a production-ready AI platform. It is an academic MVP used to demonstrate **Agile Project Management, Scrum, DevOps and responsible AI thinking**.
+AI Risk Detector is positioned as a focused MVP for AI-assisted risk analysis and backlog refinement, demonstrating how Agile, Scrum and DevOps practices can be combined to improve planning, quality and release readiness.
 
 ---
 
