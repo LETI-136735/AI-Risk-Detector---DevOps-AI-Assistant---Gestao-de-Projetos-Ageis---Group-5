@@ -1,263 +1,203 @@
-# AI Risk Detector — DevOps AI Assistant ⚠️
+# AI Risk Detector — DevOps AI Assistant
 
-## Agile Project Management — Group 5
+**Agile Project Management — Group 5**
 
-AI Risk Detector is an AI-powered assistant designed to support software teams working in Agile, Scrum and DevOps environments.
+AI Risk Detector is an AI-supported assistant designed to help Agile and DevOps software teams identify risks, improve backlog quality and support better planning, testing and release readiness decisions.
 
-The main goal of this project is not only to build a software application, but to demonstrate how Agile Project Management concepts can be applied in a real product context. The application acts as evidence of the concepts studied in the course: Product Backlog, User Stories, Sprint Planning, Sprint Review, Sprint Retrospective, DevOps practices, continuous feedback, quality management and risk mitigation.
-
----
-
-## 1. Project Context
-
-Software development teams working in Agile environments often face problems such as:
-
-- Poorly structured backlog items.
-- Ambiguous requirements.
-- Lack of visibility about technical and delivery risks.
-- Rework caused by late identification of problems.
-- Difficulty preparing Sprint Planning, Sprint Review or Retrospective.
-- Lack of standardised criteria to evaluate task or release readiness.
-- Decisions based mainly on intuition rather than structured analysis.
-
-In Agile and DevOps contexts, these problems can affect delivery speed, software quality and team confidence. If risks are discovered too late, they can lead to sprint failures, deployment issues, production incidents or delays.
-
-AI Risk Detector addresses this problem by introducing an AI-supported step before task execution or release preparation.
+This project was developed in the context of the **Agile Project Management** course. The main objective is not to build a complex production-ready software platform, but to demonstrate how **Agile, Scrum, DevOps and responsible AI concepts** can be applied in a realistic product context.
 
 ---
 
-## 2. Product Vision
+## 1. Project Summary
 
-The vision of AI Risk Detector is to help Agile software teams make better decisions before executing technical tasks, planning sprints or preparing releases.
+Software teams working in Agile and DevOps environments often need to deliver value quickly while managing uncertainty, technical complexity and changing requirements.
 
-The assistant receives a software task or requirement written in natural language and returns a structured analysis containing:
+However, teams may face problems such as:
 
-- Potential risks.
-- Risk level classification.
-- Estimated impact.
-- Mitigation recommendations.
-- Possible acceptance criteria.
-- Suggested tests or quality checks.
-- Suggestions to improve the task before execution.
+- poorly structured backlog items;
+- ambiguous requirements;
+- missing or weak acceptance criteria;
+- insufficient test planning;
+- low visibility of delivery and release risks;
+- rework caused by late identification of problems;
+- uncertainty about whether a task or release is ready to proceed.
 
-The product is designed to support the team, not to replace it. The AI provides recommendations, but the final decision must always be validated by the Product Owner, Scrum Master, Developers or other stakeholders.
+**AI Risk Detector** addresses these problems by providing an AI-supported analysis of software tasks, user stories or requirements before execution.
 
----
+The assistant receives a task or requirement written in natural language and returns a structured analysis including:
 
-## 3. Problem Statement
+- risk level;
+- potential risks;
+- expected impact;
+- mitigation recommendations;
+- suggested tests;
+- possible acceptance criteria;
+- improvement suggestions for the backlog item.
 
-Agile teams need to deliver value quickly, but fast delivery can create risk if requirements are unclear or technical tasks are not properly analysed.
-
-Common examples include:
-
-- A deployment task with no rollback plan.
-- A user story without clear acceptance criteria.
-- A backlog item that is too large for one sprint.
-- A release with insufficient testing.
-- A task that depends on external systems or APIs.
-- A technical change that may affect production stability.
-
-Without proactive risk identification, teams may only discover problems during testing, deployment or even after release. This increases rework and reduces trust in the delivery process.
+The AI output is intended to support team discussion and decision-making. It does not replace the responsibility of the Product Owner, Scrum Master, Developers or other stakeholders.
 
 ---
 
-## 4. Proposed Solution
+## 2. Problem Context
 
-AI Risk Detector is a lightweight web-based MVP that uses Artificial Intelligence to analyse software tasks and generate structured risk reports.
+In Agile environments, speed is important, but speed without clarity can create risk.
 
-The user enters a task or requirement, for example:
+A team may start working on a user story or technical task that is not ready, too ambiguous or poorly analysed. This can lead to misunderstandings, sprint delays, incomplete increments, failed deployments or additional rework.
 
-> "Deploy the new authentication module to production"
+Examples of risky situations include:
 
-The system analyses the input and returns:
+- a deployment task without a rollback plan;
+- a user story without clear acceptance criteria;
+- a backlog item that is too large for one sprint;
+- a release with insufficient testing;
+- a requirement with hidden dependencies;
+- a technical change that may affect production stability.
 
-- Risk level: High, Medium or Low.
-- Potential risks.
-- Estimated impact.
-- Recommendations to reduce risk.
-- Suggested tests.
-- Possible acceptance criteria.
-- Improvement suggestions for the backlog item.
-
-This allows the team to discuss risks earlier, improve task quality and prepare better Sprint Planning or release decisions.
+The project explores how AI can be used to support earlier risk identification and improve the quality of planning conversations in Agile and DevOps teams.
 
 ---
 
-## 5. Relationship with Agile Concepts
+## 3. Proposed Solution
 
-This project is aligned with Agile because it focuses on:
+AI Risk Detector is a lightweight MVP that helps teams analyse software work items before implementation or release.
 
-### Iterative and Incremental Delivery
+The user enters a task, requirement or user story, for example:
 
-The product was developed as an MVP and can evolve through multiple sprints. Instead of trying to build a complete tool from the beginning, the first increment focuses on validating the core value: AI-based risk analysis.
+> "Deploy the new authentication module to production without a rollback plan."
 
-### Customer Collaboration
+The system then generates a structured risk report, such as:
 
-The project is based on the idea that feedback from the client, professor or stakeholders should be used to refine the backlog and improve the product direction.
+- **Risk Level:** High
+- **Potential Risks:** production outage, authentication failure, lack of rollback strategy
+- **Impact:** users may be unable to log in if the deployment fails
+- **Recommendations:** define a rollback plan, validate authentication flows, monitor login errors
+- **Suggested Tests:** regression tests, authentication tests, rollback validation
+- **Possible Acceptance Criteria:** rollback plan exists, monitoring is configured, deployment is approved
 
-### Responding to Change
-
-The backlog is not fixed. If feedback shows that a different functionality brings more value, the Product Backlog can be adapted.
-
-### Working Software
-
-The project includes a functional prototype, but the prototype is used as evidence of Agile and DevOps concepts rather than as the only objective of the assignment.
-
-### Continuous Improvement
-
-The assistant supports continuous improvement by helping teams identify risks, propose mitigations and reflect on quality before execution.
+This output can be used during backlog refinement, Sprint Planning, Sprint Review, release preparation or retrospective discussions.
 
 ---
 
-## 6. Scrum Applied to the Project
+## 4. Alignment with Agile, Scrum and DevOps
 
-Scrum was used as the management framework for organising the work.
+This project is structured around three main areas: **Agile mindset**, **Scrum management** and **DevOps delivery practices**.
 
-The project applies Scrum through:
+### Agile Alignment
 
-- Product Backlog.
-- User Stories.
-- Acceptance Criteria.
-- Prioritisation.
-- Sprint Planning.
-- Sprint Backlog.
-- Sprint Review.
-- Sprint Retrospective.
-- Increment delivery.
+The project follows Agile principles by focusing on:
 
-Scrum helps the team structure the work, define priorities and deliver value progressively.
+- delivering a small but useful MVP;
+- responding to feedback;
+- improving the backlog iteratively;
+- supporting collaboration between team members;
+- prioritising working value over excessive documentation.
 
----
+The AI assistant is not intended to create bureaucracy. Its purpose is to improve clarity, feedback and team learning.
 
-## 7. Scrum Roles in the Project
+### Scrum Alignment
 
-### Product Owner
+Scrum is used as the project management framework.
 
-The Product Owner is responsible for maximising product value. In this project, the Product Owner perspective is represented by the need to prioritise features that bring the highest value to Agile and DevOps teams.
+The repository documents:
 
-Examples of Product Owner decisions:
+- Product Backlog;
+- user stories;
+- acceptance criteria;
+- Sprint Planning;
+- Sprint Review;
+- Sprint Retrospective;
+- Definition of Ready;
+- Definition of Done;
+- product increment and MVP scope.
 
-- Prioritising risk analysis before advanced integrations.
-- Defining which user stories belong to the MVP.
-- Ensuring that the backlog reflects the problem described in the project statement.
-- Deciding that Jira integration and user story generation are important next steps.
+Jira is used as the Scrum management tool to organise backlog items, sprint execution and workflow visibility.
 
-### Scrum Master
+### DevOps Alignment
 
-The Scrum Master is responsible for helping the team apply Scrum correctly.
+DevOps is addressed both as a delivery approach and as part of the product concept.
 
-In this project, the Scrum Master perspective is connected to:
+The project connects with DevOps through:
 
-- Facilitating Sprint Planning.
-- Ensuring that the team understands the Sprint Goal.
-- Supporting Sprint Review and Retrospective.
-- Helping the team identify blockers.
-- Promoting continuous improvement.
+- repository organisation;
+- version control;
+- documentation of delivery evidence;
+- testing and quality considerations;
+- release readiness analysis;
+- feedback loops between planning, implementation and improvement.
 
-### Developers
-
-The Developers are responsible for building the product increment.
-
-In this project, Developers worked on:
-
-- Application structure.
-- AI integration.
-- User interface.
-- Risk analysis output.
-- Documentation.
-- Repository organisation.
-- DevOps evidence.
+The product itself also supports DevOps teams by helping identify delivery risks, suggest tests and improve release preparation.
 
 ---
 
-## 8. Product Backlog
+## 5. MVP Scope
 
-The Product Backlog is a prioritised list of everything that may be developed in the product.
+The MVP is intentionally lightweight.
 
-The backlog includes functional features, quality improvements, DevOps practices and future integrations. It evolves based on feedback and learning.
+The goal is to demonstrate the core value of the product: analysing a software task or requirement and producing a structured risk report that can support Agile and DevOps decisions.
 
-| ID | User Story | Priority | Scrum/DevOps Concept |
-|---|---|---|---|
-| US1 | As a user, I want to enter a software task description, so that I can submit it for risk analysis. | High | Product Backlog / MVP |
-| US2 | As a user, I want the system to analyse my task using AI, so that I receive a structured risk assessment. | High | AI-supported decision making |
-| US3 | As a user, I want to see a risk level, so that I can quickly understand the severity of the task. | High | Quality / Risk Management |
-| US4 | As a user, I want to see potential risks, so that I can understand what could go wrong before execution. | High | Shift-left risk detection |
-| US5 | As a user, I want to see the estimated impact of each risk, so that I can prioritise mitigation actions. | High | Prioritisation |
-| US6 | As a user, I want recommendations for each risk, so that I can reduce possible problems before delivery. | High | Continuous improvement |
-| US7 | As a user, I want structured results, so that the output is easy to understand and discuss with the team. | Medium | Transparency |
-| US8 | As a user, I want loading feedback, so that I know the system is processing the analysis. | Medium | User experience |
-| US9 | As a user, I want clear error handling, so that I can recover from failed analysis attempts. | Medium | Reliability |
-| US10 | As a user, I want to start a new analysis, so that I can evaluate multiple tasks in the same session. | Medium | Workflow support |
-| US11 | As a user, I want a responsive interface, so that I can use the tool from different devices. | Medium | Accessibility |
-| US12 | As a first-time user, I want an example task placeholder, so that I understand the expected input. | Low | Usability |
-| US13 | As a user, I want to copy the results, so that I can share them with my team or include them in documentation. | Low | Collaboration |
-| US14 | As a Product Owner, I want the assistant to generate user stories from ambiguous requirements, so that the backlog becomes clearer and easier to prioritise. | High | Backlog refinement |
-| US15 | As a Product Owner, I want the assistant to generate acceptance criteria, so that the team has a shared definition of what must be delivered. | High | Acceptance criteria / Sprint Planning |
-| US16 | As a Scrum Master, I want the assistant to suggest questions for Sprint Retrospective, so that the team can identify process improvements. | Medium | Retrospective / Continuous improvement |
-| US17 | As a DevOps team member, I want the assistant to suggest tests for a task, so that quality is considered before deployment. | High | Continuous Testing |
-| US18 | As a release responsible, I want the assistant to evaluate release readiness, so that the team can decide whether a deployment is safe. | High | Release readiness / DevOps |
-| US19 | As a team member, I want to export generated user stories to a Jira-compatible format, so that they can be added to the Product Backlog. | High | Scrum tool integration |
-| US20 | As a team member, I want Jira integration through API in the future, so that generated backlog items can be created directly as Jira issues. | Medium | Automation / DevOps |
+### In Scope
 
----
+The MVP focuses on:
 
-## 9. Sprint 1 Scope
+- entering a software task or requirement;
+- generating a risk level;
+- identifying potential risks;
+- explaining possible impact;
+- suggesting mitigation actions;
+- suggesting tests;
+- proposing possible acceptance criteria;
+- improving backlog item clarity.
 
-Sprint 1 focused on validating the core product concept.
+### Out of Scope
 
-### Sprint Goal
+The project does not aim to deliver:
 
-Deliver a first functional MVP capable of receiving a software task and returning an AI-generated risk analysis.
+- a production-ready enterprise AI platform;
+- full Jira API integration;
+- real-time production monitoring;
+- a complete DevOps platform;
+- an advanced AI governance system;
+- a fully automated release management tool.
 
-### Sprint 1 Selected Backlog Items
-
-The first sprint focused mainly on:
-
-- Task input interface.
-- AI-powered risk analysis.
-- Risk level display.
-- Potential risks list.
-- Impact description.
-- Recommendations display.
-- Structured results view.
-
-### Sprint 1 Increment
-
-The Sprint 1 increment is a functional prototype where the user can enter a software task and receive a structured risk report.
-
-This increment validates the main assumption of the project: AI can support Agile and DevOps teams by identifying possible risks before task execution.
+These elements are considered possible future improvements.
 
 ---
 
-## 10. Sprint Planning Applied
+## 6. Repository Structure
 
-Sprint Planning was used to define what should be delivered in Sprint 1.
-
-During Sprint Planning, the team selected backlog items that were essential for the MVP. The focus was not to build every possible feature, but to deliver the minimum useful increment that demonstrates the concept.
-
-The selected scope answered the question:
-
-> What is the smallest product increment that proves the value of AI-supported risk analysis?
-
-The answer was:
-
-> A working interface where a user submits a task and receives risks, impact and recommendations.
-
----
-
-## 11. Sprint Review Applied
-
-Sprint Review is used to inspect the product increment and collect feedback.
-
-For this project, the Sprint Review focuses on showing:
-
-- The task input interface.
-- The AI-generated risk analysis.
-- The risk level classification.
-- The recommendations.
-- How the output could support backlog refinement, Sprint Planning or release decisions.
-
-Feedback from Sprint Review should be used to update the Product Backlog.
+```text
+AI-Risk-Detector/
+│
+├── README.md
+│
+├── docs/
+│   ├── 01_project_overview.md
+│   ├── 02_product_vision.md
+│   ├── 03_product_backlog.md
+│   ├── 04_scrum_approach.md
+│   ├── 05_devops_approach.md
+│   ├── 06_mvp_description.md
+│   ├── 07_responsible_ai_use.md
+│   └── 08_final_report_draft.md
+│
+├── management/
+│   ├── jira_board_evidence.md
+│   ├── sprint_1_planning.md
+│   ├── sprint_1_review.md
+│   ├── sprint_1_retrospective.md
+│   ├── sprint_2_planning.md
+│   ├── sprint_2_review.md
+│   └── sprint_2_retrospective.md
+│
+├── src/
+│   └── application files
+│
+├── tests/
+│   └── test files
+│
+└── .github/
+    └── workflows/
+```
 
 Possible feedback examples:
 
